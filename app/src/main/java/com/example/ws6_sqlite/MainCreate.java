@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainCreate extends AppCompatActivity {
     private MyDatabase db;
-    private EditText Enama, Ekelas;
-    private String Snama, Skelas;
+    private EditText Enama, Eaccesoris;
+    private String Snama, Saccesoris;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainCreate extends AppCompatActivity {
         db = new MyDatabase(this);
 
         Enama = (EditText) findViewById(R.id.create_nama);
-        Ekelas = (EditText) findViewById(R.id.create_kelas);
+        Eaccesoris = (EditText) findViewById(R.id.create_accesoris);
 
         Button btnCreate = (Button) findViewById(R.id.create_btn);
         btnCreate.setOnClickListener(new View.OnClickListener() {
@@ -29,24 +29,24 @@ public class MainCreate extends AppCompatActivity {
             public void onClick(View view) {
 
                 Snama = String.valueOf(Enama.getText());
-                Skelas = String.valueOf(Ekelas.getText());
+                Saccesoris = String.valueOf(Eaccesoris.getText());
 
                 if (Snama.equals("")){
                     Enama.requestFocus();
                     Toast.makeText(MainCreate.this, "Silahkan isi nama",
                             Toast.LENGTH_SHORT).show();
                 }
-                else if (Skelas.equals("")) {
-                    Ekelas.requestFocus();
+                else if (Saccesoris.equals("")) {
+                    Eaccesoris.requestFocus();
                     Toast.makeText(MainCreate.this, "Silahkan isi kelas",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Enama.setText("");
-                    Ekelas.setText("");
+                    Eaccesoris.setText("");
                     Toast.makeText(MainCreate.this, "Data telah ditambah",
                             Toast.LENGTH_SHORT).show();
-                    db.CreateMahasiswa(new Mahasiswa(null, Snama, Skelas));
+                    db.CreatePemain(new Pemain(null, Snama, Saccesoris));
 
                     Intent a = new Intent(MainCreate.this, MainActivity.class);
                     startActivity(a);

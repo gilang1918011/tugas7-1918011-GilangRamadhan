@@ -14,21 +14,21 @@ import java.util.List;
 public class CustomListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
-    private List<Mahasiswa> Mahasiswa;
+    private List<Pemain> Pemain;
 
-    public CustomListAdapter(Activity activity, List<Mahasiswa> Mahasiswa) {
+    public CustomListAdapter(Activity activity, List<Pemain> Pemain) {
         this.activity = activity;
-        this.Mahasiswa = Mahasiswa;
+        this.Pemain = Pemain;
     }
 
     @Override
     public int getCount() {
-        return Mahasiswa.size();
+        return Pemain.size();
     }
 
     @Override
     public Object getItem(int location) {
-        return Mahasiswa.get(location);
+        return Pemain.get(location);
     }
 
     @Override
@@ -46,14 +46,14 @@ public class CustomListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.custom_list, null);
 
         TextView nama = (TextView) convertView.findViewById(R.id.text_nama);
-        TextView kelas = (TextView) convertView.findViewById(R.id.text_kelas);
+        TextView accesoris = (TextView) convertView.findViewById(R.id.text_accesoris);
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.iconid);
 
-        Mahasiswa m = Mahasiswa.get(position);
+        Pemain m = Pemain.get(position);
 
         nama.setText("Nama : "+ m.get_nama());
-        kelas.setText("Kelas : "+ m.get_kelas());
+        accesoris.setText("Accesoris : "+ m.get_accesoris());
 
         return convertView;
     }

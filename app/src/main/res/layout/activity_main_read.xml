@@ -12,7 +12,7 @@
     tools:context=".MainRead">
 
     <ListView
-        android:id="@+id/list_mahasiswa"
+        android:id="@+id/list_pemain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

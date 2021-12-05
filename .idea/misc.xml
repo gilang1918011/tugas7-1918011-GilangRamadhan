@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ws6_sqlite/app/src/main/res/drawable/ic_person.xml" value="0.2203125" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/drawable/list_row_bg.xml" value="0.2203125" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/drawable/list_row_bg_hover.xml" value="0.2203125" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/drawable/list_row_selecter.xml" value="0.2203125" />
+        <entry key="..\:/ws6_sqlite/app/src/main/res/drawable/list_row_selector.xml" value="0.2203125" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/ws6_sqlite/app/src/main/res/layout/activity_main_create.xml" value="0.16621376811594202" />
+        <entry key="..\:/ws6_sqlite/app/src/main/res/layout/activity_main_create.xml" value="0.25" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/layout/activity_main_read.xml" value="0.16621376811594202" />
         <entry key="..\:/ws6_sqlite/app/src/main/res/layout/activity_main_updel.xml" value="0.16621376811594202" />
-        <entry key="..\:/ws6_sqlite/app/src/main/res/layout/costum_list.xml" value="0.25" />
+        <entry key="..\:/ws6_sqlite/app/src/main/res/layout/costum_list.xml" value="0.18" />
+        <entry key="..\:/ws6_sqlite/app/src/main/res/layout/custom_list.xml" value="0.1" />
       </map>
     </option>
   </component>

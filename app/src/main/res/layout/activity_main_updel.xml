@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello welcome to Update and Delete" />
+        android:text="welcome to Update and Delete" />
 
     <EditText
         android:id="@+id/updel_nama"
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/updel_kelas"
-        android:hint="Kelas"
+        android:id="@+id/updel_accesoris"
+        android:hint="Accesoris"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

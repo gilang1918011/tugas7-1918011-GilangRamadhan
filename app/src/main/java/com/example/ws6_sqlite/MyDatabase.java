@@ -12,19 +12,19 @@ import java.util.List;
 public class MyDatabase extends SQLiteOpenHelper {
 
     private static int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db_kampus";
+    private static final String DATABASE_NAME = "db_name";
 
-    private static final String tb_mahasiswa = "tb_mahasiswa";
+    private static final String tb_pemain = "tb_pemain";
 
-    private static final String tb_mahasiswa_id = "id";
-    private static final String tb_mahasiswa_nama = "nama";
-    private static final String tb_mahasiswa_kelas = "kelas";
+    private static final String tb_pemain_id = "id";
+    private static final String tb_pemain_nama = "nama";
+    private static final String tb_pemain_accesoris = "accesoris";
 
-    private static final String CREATE_TABLE_MAHASISWA = "CREATE TABLE " +
-            tb_mahasiswa + "("
-            + tb_mahasiswa_id + " INTEGER PRIMARY KEY ,"
-            + tb_mahasiswa_nama + " TEXT,"
-            + tb_mahasiswa_kelas + " TEXT " + ")";
+    private static final String CREATE_TABLE_PEMAIN = "CREATE TABLE " +
+            tb_pemain + "("
+            + tb_pemain_id + " INTEGER PRIMARY KEY ,"
+            + tb_pemain_nama + " TEXT,"
+            + tb_pemain_accesoris + " TEXT " + ")";
 
     public MyDatabase (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,7 +32,7 @@ public class MyDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_MAHASISWA);
+        db.execSQL(CREATE_TABLE_PEMAIN);
     }
 
     @Override
@@ -40,28 +40,28 @@ public class MyDatabase extends SQLiteOpenHelper {
 
     }
 
-    public void CreateMahasiswa (Mahasiswa data) {
+    public void Pemain (Pemain data) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(tb_mahasiswa_id, data.get_id());
-        values.put(tb_mahasiswa_nama, data.get_nama());
-        values.put(tb_mahasiswa_kelas, data.get_kelas());
-        db.insert(tb_mahasiswa, null, values);
+        values.put(tb_pemain_id, data.get_id());
+        values.put(tb_pemain_nama, data.get_nama());
+        values.put(tb_pemain_accesoris, data.get_accesoris());
+        db.insert(tb_pemain, null, values);
         db.close();
     }
 
-    public List<Mahasiswa> ReadMahasiswa() {
-        List<Mahasiswa> listMhs = new ArrayList<Mahasiswa>();
-        String selectQuery = "SELECT  * FROM " + tb_mahasiswa;
+    public List<Pemain> ReadPemain() {
+        List<Pemain> listMhs = new ArrayList<Pemain>();
+        String selectQuery = "SELECT  * FROM " + tb_pemain;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
-                Mahasiswa data = new Mahasiswa();
+                Pemain data = new Pemain();
                 data.set_id(cursor.getString(0));
                 data.set_nama(cursor.getString(1));
-                data.set_kelas(cursor.getString(2));
+                data.set_accesoris(cursor.getString(2));
                 listMhs.add(data);
             } while (cursor.moveToNext());
         }
@@ -69,21 +69,24 @@ public class MyDatabase extends SQLiteOpenHelper {
         return listMhs;
     }
 
-    public int UpdateMahasiswa (Mahasiswa data) {
+    public int UpdatePemain (Pemain data) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(tb_mahasiswa_nama, data.get_nama());
-        values.put(tb_mahasiswa_kelas, data.get_kelas());
+        values.put(tb_pemain_nama, data.get_nama());
+        values.put(tb_pemain_accesoris, data.get_accesoris());
 
-        return db.update(tb_mahasiswa, values, tb_mahasiswa_id + " = ?",
+        return db.update(tb_pemain, values, tb_pemain_id + " = ?",
                 new String[] { String.valueOf(data.get_id())});
     }
 
-    public void DeleteMahasiswa (Mahasiswa data) {
+    public void DeletePemain (Pemain data) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(tb_mahasiswa, tb_mahasiswa_id+ " = ?",
+        db.delete(tb_pemain, tb_pemain_id+ " = ?",
                 new String[]{String.valueOf(data.get_id())});
         db.close();
+    }
+
+    public void CreatePemain(Pemain pemain) {
     }
 }
